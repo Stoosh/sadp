@@ -1,0 +1,10 @@
+{
+    "name": "stoosh/sadp",
+    "authors": [
+        {
+            "name": "Michael Restuccia",
+            "email": "michael.restuccia@gmail.com"
+        }
+    ],
+    "require": {}
+}
