@@ -8,6 +8,8 @@ function get_url_signature($url)
     return hash_hmac('sha1', $url, $secret);
 }
 
+$noImageChecksum = 'cf6ac0c960582a23dc5da958454e7f9b';
+
 if (!empty($_GET)) {
     $term = $_GET['location'];
 
@@ -47,6 +49,11 @@ if (!empty($_GET)) {
 
             if(!file_exists($imageFile)) {
                 $contents = file_get_contents($imageUrl);
+
+                if(md5($contents) == $noImageChecksum) {
+                    continue;
+                }
+
                 $output = file_put_contents($imageFile, $contents);
             }
 
