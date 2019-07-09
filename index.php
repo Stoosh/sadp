@@ -84,7 +84,7 @@ if (!empty($_GET)) {
 
         .item {
             float:left;
-            margin:20px;
+            margin:25px;
             width:456px;
         }
 
