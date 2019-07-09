@@ -84,7 +84,7 @@ if (!empty($_GET)) {
 
         .item {
             float:left;
-            margin:25px;
+            margin:20px;
             width:456px;
         }
 
@@ -93,22 +93,33 @@ if (!empty($_GET)) {
             min-height:60px;
         }
 
+        .container {
+            width: 100%;
+        }
+
+        .address-input {
+            margin: auto;
+            width: 50%;
+        }
+
     </style>
 </head>
 <body>
-    <div>
-        <form method="GET" action="<?= $_SERVER['PHP_SELF']; ?>">
-            <input name="location" type="text" value="<?= $_GET['location'] ?: ''; ?>" />
-            <input type="submit" value="Submit" />
-        </form>
-    </div>
-    <div class="item-list">
-        <?php foreach($images as $image) : ?>
-            <div class="item">
-                <h2><?= $image['address']; ?></h2>
-                <img src="<?= $image['url']; ?>" />
-            </div>
-        <?php endforeach; ?>
+    <div class="container">
+        <div class="address-input">
+            <form method="GET" action="<?= $_SERVER['PHP_SELF']; ?>">
+                <input name="location" type="text" value="<?= $_GET['location'] ?: ''; ?>" />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div class="item-list">
+            <?php foreach($images as $image) : ?>
+                <div class="item">
+                    <h2><?= $image['address']; ?></h2>
+                    <img src="<?= $image['url']; ?>" />
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </body>
 </html>
