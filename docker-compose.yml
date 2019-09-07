@@ -17,5 +17,5 @@ services:
         context: .
         dockerfile: docker/php/Dockerfile
     volumes:
-      - .:/var/www
+      - ./app:/var/www
 
