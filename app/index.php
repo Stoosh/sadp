@@ -10,6 +10,7 @@ function get_url_signature($url)
 
 $noImageChecksum = 'cf6ac0c960582a23dc5da958454e7f9b';
 
+$noKeyFound = !empty(getenv('GOOGLE_API_KEY'));
 if (!empty($_GET)) {
     $term = $_GET['location'];
 
@@ -106,6 +107,9 @@ if (!empty($_GET)) {
 </head>
 <body>
     <div class="container">
+        <?php if ($noKeyFound): ?>
+            <div><h1>Google API KEY not found</h1></div>
+        <?php endif; ?>
         <div class="address-input">
             <form method="GET" action="<?= $_SERVER['PHP_SELF']; ?>">
                 <input name="location" type="text" value="<?= $_GET['location'] ?: ''; ?>" />
