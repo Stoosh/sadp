@@ -28,7 +28,7 @@ if (!empty($_GET)) {
     {
         $autocompleteUrl = sprintf('%s?key=%s&input=%s', $baseUrl, $apiKey, urlencode($term));
 
-        $jsonFile = sprintf('cache/json/%s.json', md5($term));
+        $jsonFile = sprintf('/tmp/json/%s.json', md5($term));
         if(!file_exists($jsonFile)) {
             file_put_contents($jsonFile, file_get_contents($autocompleteUrl));
         }
@@ -45,7 +45,7 @@ if (!empty($_GET)) {
             $imageUrl = sprintf('https://maps.googleapis.com/maps/api/streetview?location=%s&size=456x456&key=%s', $key, $apiKey);
             $signature = get_url_signature($imageUrl);
             $imageUrl = sprintf('%s&=%s', $imageUrl, $signature);
-            $imageFile = sprintf('cache/images/%s.jpg', md5($key));
+            $imageFile = sprintf('/tmp/images/%s.jpg', md5($key));
 
 
             if(!file_exists($imageFile)) {
